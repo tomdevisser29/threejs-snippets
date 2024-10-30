@@ -1,0 +1,20 @@
+{
+  "name": "three-js-snippets",
+  "displayName": "Three.js Snippets",
+  "description": "Streamline your Three.js workflow with optimized snippets for faster 3D development in VS Code.",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.95.0"
+  },
+  "categories": [
+    "Snippets"
+  ],
+  "contributes": {
+    "snippets": [
+      {
+        "language": "javascript",
+        "path": "./snippets/snippets.code-snippets"
+      }
+    ]
+  }
+}
