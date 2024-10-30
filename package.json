@@ -9,6 +9,14 @@
   "categories": [
     "Snippets"
   ],
+  "author": {
+    "name": "Tom de Visser",
+    "url": "https://github.com/tomdevisser29"
+  },
+  "repository": {
+    "url": "https://github.com/tomdevisser29/three-js-snippets",
+    "type": "github"
+  },
   "contributes": {
     "snippets": [
       {

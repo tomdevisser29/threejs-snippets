@@ -1,1 +1,63 @@
-{}
+{
+    "Three.js Scene Instance": {
+        "prefix": "3scene",
+        "body": [
+            "const ${1:scene} = new THREE.Scene();"
+        ],
+        "description": "Creates a new Three.js scene instance."
+    },
+    "Three.js Tick Function": {
+        "prefix": "3tick",
+        "body": [
+            "const clock = new THREE.Clock();",
+            "",
+            "const tick = () => {",
+            "\tconst elapsedTime = clock.getElapsedTime();",
+            "\trenderer.render(${1:scene}, ${2:camera});",
+            "\t${3:/* Update objects here */}",
+            "\trequestAnimationFrame(tick);",
+            "};",
+            "",
+            "tick();",
+        ],
+        "description": "Initializes a clock and an animation loop, rendering the scene continuously."
+    },
+    "Three.js Resize Listener": {
+        "prefix": "3resize",
+        "body": [
+            "window.addEventListener('resize', () => {",
+            "\trenderer.setSize(${1:window.innerWidth}, ${2:window.innerWidth});",
+            "\t${3:camera}.aspect = ${4:window.innerWidth} / ${5:window.innerWidth};",
+            "\t${3:camera}.updateProjectionMatrix();",
+            "});"
+        ],
+        "description": "Adjusts the renderer size and camera aspect ratio on window resize."
+    },
+    "Thee.js Perspective Camera": {
+		"prefix": "3pc",
+		"body": [
+			"const ${1:camera} = new THREE.PerspectiveCamera(${2:75}, ${3:window.innerWidth} / ${4:window.innerHeight}, ${5:0.1}, ${6:1000});",
+			"${1:camera}.position.set(${7:0}, ${8:1}, ${9:5});",
+            "scene.add(${1:camera});"
+		],
+		"description": "Sets up a perspective camera with customizable field of view, aspect ratio, and position."
+	},
+    "Three.js Orthographic Camera": {
+        "prefix": "3oc",
+        "body": [
+            "const ${1:aspect} = ${2:window.innerWidth} / ${3:window.innerHeight};",
+            "const ${4:camera} = new THREE.OrthographicCamera(${5:-${1:aspect} * 1}, ${6:${1:aspect} * 1}, ${7:1}, ${8:-1}, ${9:0.1}, ${10:1000});",
+            "${4:camera}.position.set(${11:0}, ${12:5}, ${13:10});",
+            "scene.add(${4:camera});"
+        ],
+        "description": "Sets up an orthographic camera with customizable bounds, and position."
+    },
+    "Three.js Ambient Light": {
+        "prefix": "3al",
+        "body": [
+            "const ${1:ambientLight} = new THREE.AmbientLight(${2:0xffffff}, ${3:0.5});",
+            "${4:scene}.add(${1:ambientLight});"
+        ],
+        "description": "Adds ambient light with customizable color and intensity to the scene."
+    }
+}
